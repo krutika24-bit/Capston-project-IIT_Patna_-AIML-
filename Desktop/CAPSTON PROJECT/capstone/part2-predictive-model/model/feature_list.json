@@ -1,0 +1,190 @@
+{
+  "best_model": "LogisticRegression",
+  "metrics": {
+    "LogisticRegression": {
+      "roc_auc": 0.7273,
+      "f1": 0.6774
+    },
+    "RandomForest": {
+      "roc_auc": 0.7215,
+      "f1": 0.676
+    }
+  },
+  "train_size": 3611,
+  "test_size": 903,
+  "target_balance_train": {
+    "late": 1893,
+    "on_time": 1718
+  },
+  "target_balance_test": {
+    "late": 455,
+    "on_time": 448
+  },
+  "numeric_features": [
+    "n_items",
+    "total_price",
+    "total_freight",
+    "freight_to_price_ratio",
+    "payment_installments",
+    "promised_days",
+    "purchase_weekday",
+    "purchase_month",
+    "cross_state",
+    "seller_hist_late_rate"
+  ],
+  "categorical_features": [
+    "payment_type",
+    "product_category"
+  ],
+  "all_transformed_features": [
+    "n_items",
+    "total_price",
+    "total_freight",
+    "freight_to_price_ratio",
+    "payment_installments",
+    "promised_days",
+    "purchase_weekday",
+    "purchase_month",
+    "cross_state",
+    "seller_hist_late_rate",
+    "payment_type_boleto",
+    "payment_type_credit_card",
+    "payment_type_debit_card",
+    "payment_type_voucher",
+    "product_category_alimentos_bebidas",
+    "product_category_artes",
+    "product_category_artigos_nautica",
+    "product_category_audio",
+    "product_category_automotivo",
+    "product_category_bebes",
+    "product_category_beleza_saude",
+    "product_category_brinquedos",
+    "product_category_cama_mesa_banho",
+    "product_category_carnes",
+    "product_category_casa_banheiro",
+    "product_category_casa_conforto",
+    "product_category_casa_conforto_2",
+    "product_category_casa_construcao",
+    "product_category_casa_cozinha",
+    "product_category_casa_escritorio",
+    "product_category_casa_garagem",
+    "product_category_casa_iluminacao",
+    "product_category_casa_jardim",
+    "product_category_casa_lavanderia",
+    "product_category_casa_limpeza",
+    "product_category_casa_outros",
+    "product_category_casa_quarto",
+    "product_category_casa_sala",
+    "product_category_casa_utilidades",
+    "product_category_cds_dvds_musicais",
+    "product_category_consoles_games",
+    "product_category_construcao_ferramentas",
+    "product_category_cool_stuff",
+    "product_category_dvds_blu_ray",
+    "product_category_eletrodomesticos",
+    "product_category_eletrodomesticos_2",
+    "product_category_eletronicos",
+    "product_category_eletroportateis",
+    "product_category_esporte_lazer",
+    "product_category_fashion_bolsas",
+    "product_category_fashion_calcados",
+    "product_category_fashion_esporte",
+    "product_category_fashion_roupa_feminina",
+    "product_category_fashion_roupa_masculina",
+    "product_category_fashion_underwear",
+    "product_category_ferramentas_jardim",
+    "product_category_flores",
+    "product_category_fraldas_higiene",
+    "product_category_informatica_acessorios",
+    "product_category_instrumentos_musicais",
+    "product_category_la_cuisine",
+    "product_category_livros_interesse",
+    "product_category_malas_acessorios",
+    "product_category_market_place",
+    "product_category_moda_roupa",
+    "product_category_moveis_colchao_estofado",
+    "product_category_moveis_cozinha",
+    "product_category_moveis_decoracao",
+    "product_category_moveis_escritorio",
+    "product_category_moveis_jardim",
+    "product_category_moveis_presentes",
+    "product_category_moveis_quarto",
+    "product_category_moveis_sala",
+    "product_category_musica_arte",
+    "product_category_papelaria",
+    "product_category_pc_gamer",
+    "product_category_perfumaria",
+    "product_category_portateis_casa_forno_cafe",
+    "product_category_portateis_cozinha",
+    "product_category_relogios_presentes",
+    "product_category_seguros_servicos",
+    "product_category_sinalizacao_seguranca",
+    "product_category_telefonia",
+    "product_category_utilidades_domesticas"
+  ],
+  "random_forest_top_10_features": [
+    {
+      "rank": 1,
+      "feature": "promised_days",
+      "importance": 0.4978
+    },
+    {
+      "rank": 2,
+      "feature": "freight_to_price_ratio",
+      "importance": 0.0684
+    },
+    {
+      "rank": 3,
+      "feature": "total_freight",
+      "importance": 0.0656
+    },
+    {
+      "rank": 4,
+      "feature": "seller_hist_late_rate",
+      "importance": 0.0627
+    },
+    {
+      "rank": 5,
+      "feature": "total_price",
+      "importance": 0.0613
+    },
+    {
+      "rank": 6,
+      "feature": "purchase_month",
+      "importance": 0.0337
+    },
+    {
+      "rank": 7,
+      "feature": "payment_installments",
+      "importance": 0.0328
+    },
+    {
+      "rank": 8,
+      "feature": "purchase_weekday",
+      "importance": 0.0282
+    },
+    {
+      "rank": 9,
+      "feature": "n_items",
+      "importance": 0.0171
+    },
+    {
+      "rank": 10,
+      "feature": "payment_type_debit_card",
+      "importance": 0.0083
+    }
+  ],
+  "model_parameters": {
+    "LogisticRegression": {
+      "max_iter": 1000,
+      "random_state": 42
+    },
+    "RandomForest": {
+      "n_estimators": 300,
+      "max_depth": 15,
+      "min_samples_leaf": 5,
+      "random_state": 42,
+      "class_weight": "balanced"
+    }
+  }
+}
