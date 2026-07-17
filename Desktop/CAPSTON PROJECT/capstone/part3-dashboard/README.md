@@ -2,97 +2,94 @@
 
 ## 🌐 Live Dashboard
 
-**Streamlit App:** [https://share.streamlit.io/](https://share.streamlit.io/)  
-*Replace with the actual URL after deployment*
+**Streamlit App:** https://capston-project-iit-patna-aiml.streamlit.app
+
+*Deployed on share.streamlit.io — no local setup required.*
 
 ---
 
 ## Run Locally
+
+If you prefer to run the dashboard on your own machine:
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/krutika24-bit/Capston-project-IIT_Patna_-AIML-.git
 cd Capston-project-IIT_Patna_-AIML-/capstone/part3-dashboard
 
-# 2. Install dependencies
-pip install -r requirements.txt
+# 2. Create a virtual environment (optional but recommended)
+python -m venv venv
+venv\Scripts\activate
 
-# 3. Ensure the following files exist (from the data pipeline):
+# 3. Install dependencies
+pip install -r ../../requirements.txt
+
+# 4. Ensure the following data files exist:
 #    - ../data/cleaned/orders_clean.csv
 #    - model/model.pkl
 #    - model/feature_list.json
+#    Run the data pipeline scripts first if these are missing (see repo root README).
 
-# 4. Run the dashboard
+# 5. Launch the dashboard
 streamlit run src/app.py
 ```
 
 ---
 
-## Dashboard Overview for Business Users
+## About This Dashboard
 
-This dashboard helps merchandising and operations managers understand delivery performance and predict late orders. It is organized into three tabs, each supporting a specific business decision.
+This dashboard helps merchandising and operations managers make data-driven decisions about delivery performance. It uses historical order data to show where delays happen, why they happen, and how likely a new order is to be late.
 
----
-
-### Tab 1: Overview
-
-**What it shows:**
-- High-level KPIs: total revenue, average delivery time, and average customer review score
-- Revenue breakdown by customer state
-- Distribution of delivery times, highlighting which orders were late
-
-**Decision it supports:**
-"Where should we focus our logistics investments?"
-
-Use this tab to identify high-revenue states and see whether delivery performance varies across regions. If certain states show lower average review scores or higher late rates, they may need better carrier partnerships or warehouse placement.
+The dashboard is organized into three tabs, each answering a specific business question.
 
 ---
 
-### Tab 2: Diagnostic
+## Tab 1: Overview — “Where are we strong and where are we weak?”
 
-**What it shows:**
-- Late delivery rate by state and by product category
-- Scatter plot linking delivery speed to customer satisfaction
+**What you see:**
+- Three headline numbers at the top: total sales revenue, average delivery time, and average customer review score.
+- A bar chart showing revenue by customer state.
+- A histogram showing how many orders took 0–5 days, 5–10 days, etc., color-coded by whether they were late.
 
-**Decision it supports:**
-"Why are orders late, and what is the business impact?"
-
-This tab pinpoints the states and product categories with the worst on-time performance. The scatter plot quantifies the satisfaction penalty of late deliveries, helping managers prioritize fixes that directly improve customer reviews.
-
----
-
-### Tab 3: Predict
-
-**What it shows:**
-- A simple input form to score a new order for late-delivery risk
-- Probability of lateness and the top factors driving that risk
-- Model performance metrics (ROC-AUC)
-
-**Decision it "What is the risk of this specific order being late?"
-
-Before promising a delivery date to a customer, operations staff can estimate whether that order is likely to arrive late based on its characteristics (price, freight cost, category, shipping distance, etc.). This supports proactive communication and exception handling.
+**Business decision it supports:**
+Use this view to decide which states or regions deserve more logistics investment. If a state generates high revenue but also has slow deliveries or low review scores, that’s a signal to improve carrier selection, add a local warehouse, or adjust delivery promises.
 
 ---
 
-## Model Information
+## Tab 2: Diagnostic — “What is causing delays, and what do they cost us?”
+
+**What you see:**
+- Two horizontal bar charts: one ranking states by late-delivery rate, and one ranking product categories by late-delivery rate.
+- A scatter plot where each dot is an order, showing the relationship between delivery speed (x-axis) and customer review score (y-axis). Late orders are highlighted in red.
+
+**Business decision it supports:**
+Use this tab to prioritize operational fixes. If one product category is consistently late, you might negotiate better shipping terms or change packaging. The scatter plot answers the question “Do late deliveries actually hurt customer satisfaction?” — if the red dots cluster at lower review scores, the answer is yes, and fixing delays should be a high priority.
+
+---
+
+## Tab 3: Predict — “Is this specific order at risk of being late?”
+
+**What you see:**
+- A simple form where you enter order details: number of items, price, freight cost, promised delivery window, purchase day/month, whether the shipment crosses state lines, and product category.
+- A prediction result showing the probability that the order will be late, plus a bar chart of the top factors contributing to that risk.
+
+**Business decision it supports:**
+Before promising a delivery date to a customer, operations staff can estimate delay risk and take proactive action — for example, flagging high-risk orders for priority handling, informing the customer of a possible delay upfront, or adjusting the promised delivery window to set realistic expectations.
+
+---
+
+## Model Details
 
 - **Algorithm:** Random Forest
-- **Target:** binary indicator of whether the order was delivered after the estimated date
-- **Performance:** ROC-AUC score displayed in the Predict tab
-- **Features used:** number of items, price, freight cost, freight-to-price ratio, promised delivery window, purchase weekday/month, cross-state flag, product category, and historical seller late rate
-
----
-
-## Repository Setup
-
-1. The dashboard reads data from the shared data pipeline (`../data/cleaned/orders_clean.csv`) and model artifacts (`model/model.pkl`, `model/feature_list.json`).
-2. Run the data preparation and model training scripts first if those files are missing. See the parent README for details.
+- **Goal:** Predict whether an order will be delivered after the estimated date
+- **Key inputs:** order value, shipping cost, delivery promise, product category, shipping distance (cross-state flag), and the seller’s historical late rate
+- **Performance:** ROC-AUC displayed in the Predict tab
 
 ---
 
 ## Tech Stack
 
-- **Streamlit** — interactive web app framework
-- **Plotly** — charts and visualizations
+- **Streamlit** — interactive dashboard
+- **Plotly** — interactive charts
 - **scikit-learn / joblib** — model inference
-- **pandas / numpy** — data handling
+- **pandas / numpy** — data processing
