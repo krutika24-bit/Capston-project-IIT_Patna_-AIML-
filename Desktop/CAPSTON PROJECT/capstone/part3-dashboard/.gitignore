@@ -1,14 +1,7 @@
-# Generated data (rebuilt by etl.py)
-data/cleaned/*.csv
-
-# Trained model (rebuilt by train_light_model.py)
-model/*.pkl
-model/*.json
-
 # DuckDB database (large, regenerated)
 data/*.duckdb
 
-# Raw CSVs (too large for git)
+# Raw CSVs (too large for git, etl.py will generate synthetic data if missing)
 data/raw/*.csv
 
 # Python cache
