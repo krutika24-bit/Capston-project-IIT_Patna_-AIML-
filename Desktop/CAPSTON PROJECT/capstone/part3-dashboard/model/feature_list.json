@@ -1,0 +1,74 @@
+{
+  "metrics": {
+    "roc_auc": 0.7308,
+    "f1": 0.6605
+  },
+  "train_size": 3611,
+  "test_size": 903,
+  "numeric_features": [
+    "n_items",
+    "total_price",
+    "total_freight",
+    "freight_to_price_ratio",
+    "promised_days",
+    "purchase_weekday",
+    "purchase_month",
+    "cross_state",
+    "seller_hist_late_rate"
+  ],
+  "categorical_features": [
+    "product_category"
+  ],
+  "top_features": [
+    {
+      "rank": 1,
+      "feature": "promised_days",
+      "importance": 0.5676
+    },
+    {
+      "rank": 2,
+      "feature": "freight_to_price_ratio",
+      "importance": 0.0634
+    },
+    {
+      "rank": 3,
+      "feature": "total_freight",
+      "importance": 0.0619
+    },
+    {
+      "rank": 4,
+      "feature": "total_price",
+      "importance": 0.0613
+    },
+    {
+      "rank": 5,
+      "feature": "purchase_month",
+      "importance": 0.0345
+    },
+    {
+      "rank": 6,
+      "feature": "purchase_weekday",
+      "importance": 0.0298
+    },
+    {
+      "rank": 7,
+      "feature": "n_items",
+      "importance": 0.0179
+    },
+    {
+      "rank": 8,
+      "feature": "product_category_la_cuisine",
+      "importance": 0.0091
+    },
+    {
+      "rank": 9,
+      "feature": "product_category_beleza_saude",
+      "importance": 0.0084
+    },
+    {
+      "rank": 10,
+      "feature": "product_category_casa_garagem",
+      "importance": 0.0054
+    }
+  ]
+}
