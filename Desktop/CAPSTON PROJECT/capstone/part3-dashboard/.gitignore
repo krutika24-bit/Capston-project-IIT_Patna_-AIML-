@@ -1,0 +1,24 @@
+# Generated data (rebuilt by etl.py)
+data/cleaned/*.csv
+
+# Trained model (rebuilt by train_light_model.py)
+model/*.pkl
+model/*.json
+
+# DuckDB database (large, regenerated)
+data/*.duckdb
+
+# Raw CSVs (too large for git)
+data/raw/*.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Streamlit secrets (never commit real credentials)
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
