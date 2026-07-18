@@ -1,0 +1,21 @@
+# Model artifacts (can be regenerated) 
+model/*.pkl 
+model/*.json 
+ 
+# Raw CSV data 
+data/raw/*.csv 
+ 
+# Python cache 
+__pycache__/ 
+*.pyc 
+*.pyo 
+ 
+# IDE / editor 
+.vscode/ 
+.idea/ 
+*.swp 
+*.swo 
+ 
+# OS files 
+.DS_Store 
+Thumbs.db

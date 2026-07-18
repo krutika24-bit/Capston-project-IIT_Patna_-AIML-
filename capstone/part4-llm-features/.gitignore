@@ -1,0 +1,21 @@
+# Raw CSV data (large, not tracked in git) 
+data/raw/*.csv 
+ 
+# Generated artifacts (can be regenerated) 
+data/extracted_reviews.csv 
+data/chroma/ 
+ 
+# Python cache 
+__pycache__/ 
+*.pyc 
+*.pyo 
+ 
+# IDE / editor 
+.vscode/ 
+.idea/ 
+*.swp 
+*.swo 
+ 
+# OS files 
+.DS_Store 
+Thumbs.db

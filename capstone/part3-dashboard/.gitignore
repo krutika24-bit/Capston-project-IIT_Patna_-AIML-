@@ -1,0 +1,17 @@
+# DuckDB database (large, regenerated)
+data/*.duckdb
+
+# Raw CSVs (too large for git, etl.py will generate synthetic data if missing)
+data/raw/*.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Streamlit secrets (never commit real credentials)
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
