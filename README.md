@@ -1,3 +1,16 @@
+[![Python](https://img.shields.io/badge/python-3.8%2B-3670A0)](https://www.python.org/)
+
+# Capstone Project: Olist Delivery Analytics & Predictive Modeling
+One-line summary: End-to-end delivery analytics & late-delivery prediction (Streamlit dashboard + LLM insights).
+
+Quick links:
+- Live dashboard: https://capston-project-iit-patna-aiml.streamlit.app
+- Parts: Diagnostic, Predictive model, Dashboard, LLM features
+
+---
+
+<!-- Rest of original README retained below -->
+
 # Capstone Project: Olist Delivery Analytics & Predictive Modeling
 ## IIT Patna — AI/ML Program
 
@@ -44,7 +57,7 @@ Capston-project-IIT_Patna_-AIML-/
 │   │   ├── README.md
 │   │   ├── src/                       # Training, evaluation, prediction
 │   │   ├── data/                      # model_dataset.csv
-│   │   └── model/                     # Saved model.pkl + metadata
+│   │   │   └── model/                     # Saved model.pkl + metadata
 │   │
 │   ├── part3-dashboard/
 │   │   ├── README.md
